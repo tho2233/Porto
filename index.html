@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Muhammad Thoha | Personal Portfolio</title>
+
+  <meta
+    name="description"
+    content="Portfolio pribadi Muhammad Thoha, pelajar MAN Barito Utara yang tertarik pada teknologi, web development, desain, AI, dan kreativitas digital."
+  />
+
+  <style>
+
+    /* =========================
+       RESET & GLOBAL
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      max-width: 100℅;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --bg: #05070d;
+      --bg-secondary: #090d18;
+      --card: rgba(13, 20, 35, 0.78);
+
+      --blue: #1677ff;
+      --cyan: #00e5ff;
+
+      --white: #ffffff;
+      --text: #d8e1f0;
+      --muted: #8290a6;
+
+      --border: rgba(255, 255, 255, 0.08);
+
+      --shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    body {
+      font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(0, 229, 255, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(22, 119, 255, 0.12),
+      transparent 30%
+    ),
+    var(--bg);
+
+  color: var(--text);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  line-height: 1.6;
+    }
+
+    * {
+  max-width: 100%;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+
+    /* =========================
+       SCROLLBAR
+    ========================= */
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #05070d;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        var(--blue),
+        var(--cyan)
+      );
+      border-radius: 10px;
+    }
+
+
+    /* =========================
+       BACKGROUND EFFECTS
+    ========================= */
+
+    .grid-background {
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 50px 50px;
+
+      pointer-events: none;
+      z-index: -2;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 90%
+        );
+    }
+
+    .glow {
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      background: var(--cyan);
+      filter: blur(180px);
+
+      opacity: 0.08;
+      border-radius: 50%;
+
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .glow.one {
+      top: -200px;
+      left: -200px;
+    }
+
+    .glow.two {
+      bottom: -200px;
+      right: -200px;
+
+      background: var(--blue);
+    }
+
+
+    /* =========================
+       CONTAINER
+    ========================= */
+
+    .container {
+      width: min(1150px, 90%);
+      margin: auto;
+    }
+
+    section {
+      padding: 110px 0;
+    }
+
+
+    /* =========================
+       SCROLL REVEAL ANIMATION
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-80px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(80px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.88);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal-scale.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+
+    /* Delay */
+
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .delay-4 {
+      transition-delay: 0.4s;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      z-index: 1000;
+
+      padding: 20px 0;
+      transition: 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(5, 7, 13, 0.82);
+      backdrop-filter: blur(20px);
+
+      border-bottom:
+        1px solid var(--border);
+
+      padding: 13px 0;
+    }
+
+    .nav-content {
+      width: min(1150px, 90%);
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+      color: var(--white);
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--muted);
+
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+
+      background: transparent;
+      border: none;
+
+      color: white;
+      font-size: 1.5rem;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding-top: 100px;
+    }
+
+    .hero-content {
+      display: grid;
+
+      grid-template-columns:
+        1.3fr 0.7fr;
+
+      gap: 70px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 9px 16px;
+
+      border:
+        1px solid rgba(0, 229, 255, 0.2);
+
+      background:
+        rgba(0, 229, 255, 0.05);
+
+      border-radius: 100px;
+
+      color: var(--cyan);
+      font-size: 0.85rem;
+
+      margin-bottom: 25px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--cyan);
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 15px var(--cyan);
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(3rem, 7vw, 6rem);
+
+      line-height: 0.95;
+      letter-spacing: -3px;
+
+      color: var(--white);
+    }
+
+    .hero h1 span {
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 25px;
+
+      font-size: 1.25rem;
+      color: var(--cyan);
+    }
+
+    .hero-description {
+      margin-top: 18px;
+
+      max-width: 600px;
+
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+
+      margin-top: 35px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 14px 24px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      color: white;
+      font-weight: 700;
+
+      transition: 0.3s;
+
+      box-shadow:
+        0 10px 35px
+        rgba(0, 229, 255, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      padding: 14px 24px;
+
+      border-radius: 10px;
+
+      border:
+        1px solid var(--border);
+
+      color: var(--white);
+
+      background:
+        rgba(255, 255, 255, 0.02);
+
+      transition: 0.3s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+
+    /* =========================
+       PROFILE CARD
+    ========================= */
+
+    .profile-card {
+      position: relative;
+
+      padding: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20, 30, 50, 0.9),
+          rgba(5, 8, 15, 0.9)
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 25px;
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 3px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--cyan)
+        );
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+
+      margin-bottom: 25px;
+
+      border-radius: 50%;
+
+      padding: 5px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--cyan),
+          var(--white)
+        );
+
+      box-shadow:
+        0 0 35px
+        rgba(0, 229, 255, 0.3);
+
+      overflow: hidden;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+      background: #111827;
+    }
+
+    .profile-card h3 {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .mini-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .mini-card {
+      padding: 15px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255, 255, 255, 0.02);
+
+      border-radius: 12px;
+    }
+
+    .mini-card span {
+      display: block;
+
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .mini-card strong {
+      display: block;
+
+      color: var(--white);
+
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+
+    /* =========================
+       SECTION TITLE
+    ========================= */
+
+    .section-label {
+      color: var(--cyan);
+
+      font-size: 0.8rem;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size:
+        clamp(2rem, 4vw, 3.5rem);
+
+      color: var(--white);
+
+      margin-top: 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-description {
+      margin-top: 18px;
+
+      max-width: 650px;
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 15px;
+    }
+
+    .info-card {
+      padding: 22px;
+
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 16px;
+
+      transition: 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(0, 229, 255, 0.35);
+    }
+
+    .info-card small {
+      color: var(--muted);
+    }
+
+    .info-card h4 {
+      color: white;
+      margin-top: 7px;
+    }
+
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 20px;
+      margin-top: 45px;
+    }
+
+    .skill-card {
+      padding: 28px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20, 30, 50, 0.6),
+          rgba(5, 7, 13, 0.7)
+        );
+
+      border-radius: 18px;
+      transition: 0.35s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+
+      border-color:
+        rgba(0, 229, 255, 0.4);
+
+      box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.3);
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+    }
+
+    .skill-card h3 {
+      margin-top: 20px;
+      color: white;
+    }
+
+    .skill-card ul {
+      margin-top: 15px;
+
+      list-style: none;
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .skill-card li {
+      padding: 7px 0;
+
+      border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.04);
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 25px;
+      margin-top: 45px;
+    }
+
+    .project-card {
+      overflow: hidden;
+
+      border-radius: 20px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--card);
+
+      transition: 0.35s;
+
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+
+      border-color:
+        rgba(0, 229, 255, 0.5);
+
+      box-shadow:
+        0 25px 60px
+        rgba(0, 0, 0, 0.4);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 300px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      position: relative;
+
+      background: #0a0f1a;
+    }
+
+    .project-image::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(5, 7, 13, 0.35),
+          transparent 50%
+        );
+
+      pointer-events: none;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      display: block;
+
+      transition:
+        transform 0.6s ease;
+    }
+
+    .project-card:hover
+    .project-image img {
+      transform: scale(1.02);
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      color: white;
+      font-size: 1.25rem;
+    }
+
+    .project-content p {
+      margin-top: 10px;
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .project-bottom {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .project-tag {
+      display: inline-block;
+
+      padding: 7px 12px;
+
+      border-radius: 100px;
+
+      background:
+        rgba(0, 229, 255, 0.08);
+
+      color: var(--cyan);
+      font-size: 0.75rem;
+    }
+
+    .view-project {
+      color: var(--white);
+
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      transition: 0.3s;
+    }
+
+    .view-project:hover {
+      color: var(--cyan);
+    }
+
+
+    /* =========================
+       INTERESTS
+    ========================= */
+
+    .interest-list {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .interest {
+      padding: 14px 20px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255, 255, 255, 0.02);
+
+      border-radius: 100px;
+
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    .interest:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+
+      transform: translateY(-3px);
+    }
+
+
+    /* =========================
+       TIMELINE
+    ========================= */
+
+    .timeline {
+      margin-top: 50px;
+
+      position: relative;
+
+      padding-left: 30px;
+
+      border-left:
+        1px solid
+        rgba(0, 229, 255, 0.2);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 45px;
+    }
+
+    .timeline-item::before {
+      content: "";
+
+      position: absolute;
+
+      left: -37px;
+      top: 7px;
+
+      width: 12px;
+      height: 12px;
+
+      background: var(--cyan);
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 20px var(--cyan);
+    }
+
+    .timeline-item h3 {
+      color: white;
+    }
+
+    .timeline-item p {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       QUOTE
+    ========================= */
+
+    .quote-box {
+      text-align: center;
+
+      padding: 70px 30px;
+
+      border-radius: 25px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(0, 229, 255, 0.1),
+          transparent 50%
+        ),
+        rgba(255, 255, 255, 0.015);
+    }
+
+    .quote-box h2 {
+      font-size:
+        clamp(1.7rem, 4vw, 3rem);
+
+      color: white;
+
+      max-width: 850px;
+      margin: auto;
+
+      line-height: 1.3;
+    }
+
+    .quote-box span {
+      color: var(--cyan);
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-box {
+      margin-top: 45px;
+
+      padding: 50px;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(22, 119, 255, 0.1),
+          rgba(0, 229, 255, 0.05)
+        );
+
+      border:
+        1px solid
+        rgba(0, 229, 255, 0.15);
+
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      color: white;
+      font-size: 2rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+
+      max-width: 600px;
+
+      margin: 15px auto 30px;
+    }
+
+    .social-link {
+  padding: 13px 20px;
+
+  border-radius: 10px;
+
+  border: 1px solid var(--border);
+
+  background:
+    rgba(5, 7, 13, 0.5);
+
+  color: var(--white) !important;
+
+  text-decoration: none !important;
+
+  transition: 0.3s;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+    }
+
+    .social-link:hover {
+  color: var(--cyan) !important;
+
+  text-decoration: none !important;
+
+  border-color: var(--cyan);
+
+  transform: translateY(-3px);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 35px 0;
+
+      border-top:
+        1px solid var(--border);
+
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer span {
+      color: var(--cyan);
+    }
+
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    #backToTop {
+      position: fixed;
+
+      bottom: 25px;
+      right: 25px;
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 12px;
+
+      border:
+        1px solid
+        rgba(0, 229, 255, 0.3);
+
+      background:
+        rgba(5, 7, 13, 0.8);
+
+      color: var(--cyan);
+
+      font-size: 1.2rem;
+
+      cursor: pointer;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: 0.3s;
+
+      backdrop-filter: blur(15px);
+    }
+
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .hero-content,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 130px;
+        padding-bottom: 80px;
+      }
+
+      .skills-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .profile-card {
+        max-width: 550px;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+        left: 5%;
+        right: 5%;
+
+        padding: 25px;
+
+        background:
+          rgba(8, 12, 22, 0.98);
+
+        border:
+          1px solid var(--border);
+
+        border-radius: 15px;
+
+        flex-direction: column;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 3.3rem;
+      }
+
+      .project-image {
+        height: 280px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .contact-box {
+        padding: 35px 20px;
+      }
+
+    }
+
+    .logo,
+
+    .btn-primary,
+
+    .btn-secondary {
+  text-decoration: none !important;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <div class="grid-background"></div>
+
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+
+  <!-- NAVBAR -->
+
+  <nav id="navbar">
+
+    <div class="nav-content">
+
+      <a href="#home" class="logo">
+        M<span>T</span>.
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#projects">Karya</a></li>
+        <li><a href="#contact">Kontak</a></li>
+
+      </ul>
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <main>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div>
+
+            <div class="badge">
+
+              <span class="status-dot"></span>
+
+              Student & Technology Enthusiast
+
+            </div>
+
+
+            <h1>
+
+              MUHAMMAD<br>
+              <span>THOHA.</span>
+
+            </h1>
+
+
+            <p class="hero-subtitle">
+
+              Student • Creator • Technology Enthusiast
+
+            </p>
+
+
+            <p class="hero-description">
+
+              Saya adalah seorang pelajar berusia 17 tahun
+              dari MAN Barito Utara yang memiliki ketertarikan
+              terhadap teknologi, pengembangan website,
+              desain digital, Artificial Intelligence,
+              dan berbagai proyek kreatif.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+              <a href="#projects" class="btn-primary">
+                Lihat Karya
+              </a>
+
+              <a href="#about" class="btn-secondary">
+                Tentang Saya
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- PROFILE CARD -->
+
+          <div class="profile-card">
+
+            <div class="profile-image">
+
+              <img
+                src="https://lh3.googleusercontent.com/d/17uigTL4LlKGNiXaOmtlz1onZzcSS656A"
+                alt="Foto Muhammad Thoha"
+              >
+
+            </div>
+
+
+            <h3>Muhammad Thoha</h3>
+
+            <p>
+
+              Young Creator yang terus belajar,
+              bereksperimen, dan membangun berbagai
+              karya digital.
+
+            </p>
+
+
+            <div class="mini-info">
+
+              <div class="mini-card">
+
+                <span>Usia</span>
+                <strong>17 Tahun</strong>
+
+              </div>
+
+
+              <div class="mini-card">
+
+                <span>Status</span>
+                <strong>Pelajar</strong>
+
+              </div>
+
+
+              <div class="mini-card">
+
+                <span>Sekolah</span>
+                <strong>MAN BARUT</strong>
+
+              </div>
+
+
+              <div class="mini-card">
+
+                <span>Fokus</span>
+                <strong>Technology</strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div class="about-text reveal-left">
+
+            <div class="section-label">
+              Tentang Saya
+            </div>
+
+            <h2 class="section-title">
+              Terus Belajar, Terus Berkembang.
+            </h2>
+
+            <p>
+              Halo! Saya Muhammad Thoha, seorang pelajar
+              berusia 17 tahun yang sedang menempuh pendidikan
+              di MAN Barito Utara.
+            </p>
+
+            <p>
+              Saya memiliki ketertarikan besar terhadap dunia
+              teknologi dan kreativitas digital. Saya senang
+              mempelajari hal-hal baru, mencoba berbagai ide,
+              serta membangun proyek untuk mengembangkan kemampuan.
+            </p>
+
+            <p>
+              Bagi saya, usia muda bukan alasan untuk menunggu.
+              Saya percaya bahwa belajar, mencoba, gagal,
+              dan terus berkembang adalah bagian dari perjalanan
+              untuk menciptakan sesuatu yang lebih besar.
+            </p>
+
+          </div>
+
+
+          <div class="info-grid reveal-right">
+
+            <div class="info-card">
+              <small>Nama Lengkap</small>
+              <h4>Muhammad Thoha</h4>
+            </div>
+
+            <div class="info-card">
+              <small>Usia</small>
+              <h4>17 Tahun</h4>
+            </div>
+
+            <div class="info-card">
+              <small>Pendidikan</small>
+              <h4>MAN Barito Utara</h4>
+            </div>
+
+            <div class="info-card">
+              <small>Status</small>
+              <h4>Pelajar</h4>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-label reveal">
+          Keahlian & Minat
+        </div>
+
+        <h2 class="section-title reveal delay-1">
+          Apa yang Saya Pelajari.
+        </h2>
+
+        <p class="section-description reveal delay-2">
+          Saya terus mengembangkan kemampuan melalui
+          pembelajaran, eksperimen, dan berbagai proyek kreatif.
+        </p>
+
+
+        <div class="skills-grid">
+
+
+          <div class="skill-card reveal delay-1">
+
+            <div class="skill-icon">💻</div>
+
+            <h3>Web Development</h3>
+
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Website Development</li>
+            </ul>
+
+          </div>
+
+
+          <div class="skill-card reveal delay-2">
+
+            <div class="skill-icon">🎨</div>
+
+            <h3>Digital Design</h3>
+
+            <ul>
+              <li>Desain Poster</li>
+              <li>Desain Presentasi</li>
+              <li>Konten Digital</li>
+              <li>Creative Visual</li>
+            </ul>
+
+          </div>
+
+
+          <div class="skill-card reveal delay-3">
+
+            <div class="skill-icon">🤖</div>
+
+            <h3>Technology & AI</h3>
+
+            <ul>
+              <li>Artificial Intelligence</li>
+              <li>AI Assisted Development</li>
+              <li>Technology Exploration</li>
+              <li>Digital Innovation</li>
+            </ul>
+
+          </div>
+
+
+          <div class="skill-card reveal delay-4">
+
+            <div class="skill-icon">🚀</div>
+
+            <h3>Creative Projects</h3>
+
+            <ul>
+              <li>Project Development</li>
+              <li>Creative Ideas</li>
+              <li>Digital Experiments</li>
+              <li>Problem Solving</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-label reveal">
+          Design Portfolio
+        </div>
+
+        <h2 class="section-title reveal delay-1">
+          Karya Desain Saya.
+        </h2>
+
+        <p class="section-description reveal delay-2">
+
+          Beberapa karya desain yang telah saya buat
+          sebagai bagian dari perjalanan kreatif dan
+          pengembangan kemampuan saya.
+
+        </p>
+
+
+        <div class="projects-grid">
+
+
+          <article class="project-card reveal-scale delay-1">
+
+            <a
+              href="https://drive.google.com/file/d/14daP8J7UcimfmsFGRLmGaXpIW8UgYcta/view?usp=drivesdk"
+              target="_blank"
+            >
+
+              <div class="project-image">
+
+                <img
+                  src="https://lh3.googleusercontent.com/d/14daP8J7UcimfmsFGRLmGaXpIW8UgYcta"
+                  alt="Karya Desain 1 Muhammad Thoha"
+                >
+
+              </div>
+
+            </a>
+
+            <div class="project-content">
+
+              <h3>Karya Desain #01</h3>
+
+              <p>
+                Salah satu karya desain digital
+                yang menjadi bagian dari portfolio
+                kreatif saya.
+              </p>
+
+              <div class="project-bottom">
+
+                <span class="project-tag">
+                  Digital Design
+                </span>
+
+                <a
+                  href="https://drive.google.com/file/d/14daP8J7UcimfmsFGRLmGaXpIW8UgYcta/view?usp=drivesdk"
+                  target="_blank"
+                  class="view-project"
+                >
+                  Lihat Karya ↗
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="project-card reveal-scale delay-2">
+
+            <a
+              href="https://drive.google.com/file/d/1PdsW07nFbcXggApM2AEkqUkAopWie-uI/view?usp=drivesdk"
+              target="_blank"
+            >
+
+              <div class="project-image">
+
+                <img
+                  src="https://lh3.googleusercontent.com/d/1PdsW07nFbcXggApM2AEkqUkAopWie-uI"
+                  alt="Karya Desain 2 Muhammad Thoha"
+                >
+
+              </div>
+
+            </a>
+
+            <div class="project-content">
+
+              <h3>Karya Desain #02</h3>
+
+              <p>
+                Eksplorasi desain visual dengan
+                konsep kreatif dan tampilan modern.
+              </p>
+
+              <div class="project-bottom">
+
+                <span class="project-tag">
+                  Graphic Design
+                </span>
+
+                <a
+                  href="https://drive.google.com/file/d/1PdsW07nFbcXggApM2AEkqUkAopWie-uI/view?usp=drivesdk"
+                  target="_blank"
+                  class="view-project"
+                >
+                  Lihat Karya ↗
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="project-card reveal-scale delay-3">
+
+            <a
+              href="https://drive.google.com/file/d/1MhX8zCwjPOvl8djIaEVeCNTAnBQxo-vB/view?usp=drivesdk"
+              target="_blank"
+            >
+
+              <div class="project-image">
+
+                <img
+                  src="https://lh3.googleusercontent.com/d/1MhX8zCwjPOvl8djIaEVeCNTAnBQxo-vB"
+                  alt="Karya Desain 3 Muhammad Thoha"
+                >
+
+              </div>
+
+            </a>
+
+            <div class="project-content">
+
+              <h3>Karya Desain #03</h3>
+
+              <p>
+                Karya desain digital yang menunjukkan
+                proses eksplorasi kreativitas dan visual.
+              </p>
+
+              <div class="project-bottom">
+
+                <span class="project-tag">
+                  Visual Design
+                </span>
+
+                <a
+                  href="https://drive.google.com/file/d/1MhX8zCwjPOvl8djIaEVeCNTAnBQxo-vB/view?usp=drivesdk"
+                  target="_blank"
+                  class="view-project"
+                >
+                  Lihat Karya ↗
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="project-card reveal-scale delay-4">
+
+            <a
+              href="https://drive.google.com/file/d/1Y7YLXNxkZUn0oDZjCtuTkojaCBM-7EPm/view?usp=drivesdk"
+              target="_blank"
+            >
+
+              <div class="project-image">
+
+                <img
+                  src="https://lh3.googleusercontent.com/d/1Y7YLXNxkZUn0oDZjCtuTkojaCBM-7EPm"
+                  alt="Karya Desain 4 Muhammad Thoha"
+                >
+
+              </div>
+
+            </a>
+
+            <div class="project-content">
+
+              <h3>Karya Desain #04</h3>
+
+              <p>
+                Salah satu karya kreatif yang menjadi
+                bagian dari koleksi portfolio desain saya.
+              </p>
+
+              <div class="project-bottom">
+
+                <span class="project-tag">
+                  Creative Design
+                </span>
+
+                <a
+                  href="https://drive.google.com/file/d/1Y7YLXNxkZUn0oDZjCtuTkojaCBM-7EPm/view?usp=drivesdk"
+                  target="_blank"
+                  class="view-project"
+                >
+                  Lihat Karya ↗
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- INTERESTS -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            Interests
+          </div>
+
+          <h2 class="section-title">
+            Hal yang Saya Sukai.
+          </h2>
+
+        </div>
+
+
+        <div class="interest-list reveal delay-1">
+
+          <div class="interest">💻 Technology</div>
+          <div class="interest">🌐 Web Development</div>
+          <div class="interest">🤖 Artificial Intelligence</div>
+          <div class="interest">🎨 Digital Design</div>
+          <div class="interest">🎮 Gaming</div>
+          <div class="interest">🏎️ Automotive</div>
+          <div class="interest">🏁 Motorsport</div>
+          <div class="interest">🚀 Digital Creativity</div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TIMELINE -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label reveal">
+          Journey
+        </div>
+
+        <h2 class="section-title reveal delay-1">
+          Perjalanan Saya.
+        </h2>
+
+
+        <div class="timeline">
+
+          <div class="timeline-item reveal-left">
+
+            <h3>Awal Perjalanan</h3>
+
+            <p>
+              Mulai tertarik mempelajari teknologi,
+              dunia digital, dan berbagai hal kreatif.
+            </p>
+
+          </div>
+
+
+          <div class="timeline-item reveal-right">
+
+            <h3>Belajar & Bereksperimen</h3>
+
+            <p>
+              Mulai mencoba membuat berbagai desain,
+              website, dan proyek digital.
+            </p>
+
+          </div>
+
+
+          <div class="timeline-item reveal-left">
+
+            <h3>Mengembangkan Kemampuan</h3>
+
+            <p>
+              Terus belajar teknologi baru dan
+              meningkatkan kemampuan melalui berbagai proyek.
+            </p>
+
+          </div>
+
+
+          <div class="timeline-item reveal-right">
+
+            <h3>Masa Depan</h3>
+
+            <p>
+              Terus berkembang, membangun karya,
+              dan menciptakan sesuatu yang bermanfaat
+              melalui teknologi.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="quote-box reveal-scale">
+
+          <h2>
+
+            "Mulai dari apa yang kamu punya,
+            <span>
+              pelajari apa yang belum kamu tahu,
+            </span>
+            dan terus berkembang melalui karya."
+
+          </h2>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="contact-box reveal">
+
+          <h2>Mari Terhubung.</h2>
+
+          <p>
+
+            Tertarik untuk mengenal saya atau melihat
+            karya saya lebih jauh? Jangan ragu untuk
+            terhubung melalui media sosial.
+
+          </p>
+
+
+          <div class="social-links">
+
+            <a
+              href="https://www.instagram.com/toh_moon"
+              target="_blank"
+              class="social-link"
+            >
+               Instagram
+            </a>
+
+
+            <a
+              href="https://www.tiktok.com/@tyn_331"
+              target="_blank"
+              class="social-link"
+            >
+               TikTok
+            </a>
+
+
+            <a
+              href="https://wa.me/6282149570324"
+              target="_blank"
+              class="social-link"
+            >
+            whatsapp
+            </a>
+
+
+            <a
+              href="mailto:thohaviola1@gmail.com"
+              class="social-link"
+            >
+              email
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026 Muhammad Thoha.
+        All Rights Reserved.
+      </p>
+
+      <p style="margin-top: 8px;">
+
+        Built with
+
+        <span>
+          passion, creativity & technology.
+        </span>
+
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- BACK TO TOP -->
+
+  <button id="backToTop">
+    ↑
+  </button>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    /* =========================
+       NAVBAR & BACK TO TOP
+    ========================= */
+
+    const navbar =
+      document.getElementById("navbar");
+
+    const backToTop =
+      document.getElementById("backToTop");
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (window.scrollY > 50) {
+
+          navbar.classList.add("scrolled");
+
+        } else {
+
+          navbar.classList.remove("scrolled");
+
+        }
+
+
+        if (window.scrollY > 500) {
+
+          backToTop.classList.add("show");
+
+        } else {
+
+          backToTop.classList.remove("show");
+
+        }
+
+      }
+    );
+
+
+    backToTop.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+
+    menuBtn.addEventListener(
+      "click",
+      () => {
+
+        navLinks.classList.toggle("active");
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            navLinks.classList.remove("active");
+
+          }
+        );
+
+      });
+
+
+    /* =========================
+       SCROLL REVEAL ANIMATION
+    ========================= */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right, .reveal-scale"
+      );
+
+
+    function revealOnScroll() {
+
+      revealElements.forEach(element => {
+
+        const windowHeight =
+          window.innerHeight;
+
+        const elementTop =
+          element.getBoundingClientRect().top;
+
+        const elementBottom =
+          element.getBoundingClientRect().bottom;
+
+
+        /*
+          Jika elemen masuk layar,
+          jalankan animasi
+        */
+
+        if (
+          elementTop < windowHeight - 80 &&
+          elementBottom > 80
+        ) {
+
+          element.classList.add("active");
+
+        } else {
+
+          /*
+            Jika elemen keluar layar,
+            reset animasi.
+
+            Jadi saat scroll kembali,
+            animasi akan dimainkan lagi.
+          */
+
+          element.classList.remove("active");
+
+        }
+
+      });
+
+    }
+
+
+    /*
+      Jalankan saat halaman
+      pertama kali dibuka
+    */
+
+    revealOnScroll();
+
+
+    /*
+      Jalankan setiap kali
+      halaman di-scroll
+    */
+
+    window.addEventListener(
+      "scroll",
+      revealOnScroll
+    );
+
+
+    /*
+      Jalankan juga jika ukuran
+      layar berubah
+    */
+
+    window.addEventListener(
+      "resize",
+      revealOnScroll
+    );
+
+  </script>
+
+</body>
+  </html>
